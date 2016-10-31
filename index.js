@@ -1,10 +1,11 @@
 var ip = require('ip');
 var child_process = require('child_process');
+var path = require('path');
 var exec = child_process.exec;
 var fileQueue;
 
 function getFilePath (source) {
-    var sourcePath = './source/' + source + '.mp3';
+    var sourcePath = path.join(__dirname, './source/' + source + '.mp3');
     return sourcePath;
 }
 
@@ -41,7 +42,5 @@ function play () {
         playAudio(loop);
     }
 }
-
-exec('cd ' + __dirname);
 
 play();
